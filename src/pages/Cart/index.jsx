@@ -262,10 +262,10 @@ const Shop = () => {
                   </ProductDetails>
                 ))
               }
-              <p>Shipping charge: { orderDetails.shippingCharge }</p>
+              <p>Shipping charge: ${ orderDetails.shippingCharge }</p>
               <p>sales taxes: { orderDetails.taxes }</p>
-              <p>Total products value: { orderDetails.totalProductsValue}</p>
-              <p>Final value: { orderDetails.finalValue }</p> 
+              <p>Total products value: ${ orderDetails.totalProductsValue}</p>
+              <p>Final value: ${ orderDetails.finalValue }</p> 
             </div>
             <button onClick={() => setSuccessMesage(false)}>OK</button>
             <CloseButton onClick={() => setSuccessMesage(false)}>
