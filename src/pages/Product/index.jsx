@@ -44,6 +44,7 @@ const Shop = ({ location }) => {
   const [ selectedImage, setSelectedImage] = useState({ img: product.images[0], index: 0 });
   const [ selectedOption, setSelectedOption] = useState('info');
   const [ selectedSize, setSelectedSize] = useState(product.sizes[0]);
+  const [ error, setError] = useState(false);
 
   const changeImage = useCallback((direction)=>{
     if(direction === 'prev' && selectedImage.index > 0){
@@ -60,6 +61,14 @@ const Shop = ({ location }) => {
       })
     }
   },[selectedImage, product]);
+
+  const handleShowError = useCallback(()=> {
+    setError(true);
+
+    setTimeout(() => {
+      setError(false);
+    }, 2000);
+  },[]);
 
   const handleAddToCart = useCallback(()=>{
     if(product.inventory > 0){
@@ -81,8 +90,12 @@ const Shop = ({ location }) => {
       }
       
       history.push('/cart');
+    } else {
+      handleShowError();
     }
-  },[selectedSize, dispatch, history, product, cart]);
+  },[product, selectedSize, cart.products, history, dispatch, handleShowError]);
+
+  
 
   return (
     <Container>
@@ -184,7 +197,9 @@ const Shop = ({ location }) => {
                 <p>
                  $ {product.price}
                 </p>
-                <button onClick={handleAddToCart}>Add to cart</button>
+                <button error={error} onClick={handleAddToCart}>
+                  { error ? 'Not enough products' : 'Add to cart' }
+                </button>
             </ProductSellOptions>
             
             <BackToShop>

@@ -129,8 +129,8 @@ export const QuantityError = styled.div`
   user-select: none;
   font-family: 'Mulish';
   font-weight: bold;
-  border: 2px solid red !important;
-  background: #ff9d9d;
+  border: 2px solid var(--red) !important;
+  background: var(--pink-2);
 `;
 
 export const ProdPrice = styled.div`

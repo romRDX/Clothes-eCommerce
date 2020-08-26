@@ -13,6 +13,8 @@ export default createGlobalStyle`
     --gray-6: #8E8E93;
     --gray-7: #48484A;
     --pink: #EDA3B5;
+    --pink-2: #ff9d9d;
+    --red: #FF0000;
   }
 
   * {

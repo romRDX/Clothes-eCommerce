@@ -302,6 +302,13 @@ export const ProductSellOptions = styled.div`
     border-radius: 16px;
     transition: 0.5s;
 
+    ${(props) =>
+    props.error &&
+    css`
+      background: var(--pink-2);
+      border-color: var(--red);
+    `}
+
     &:hover {
       color: var(--white);
       background: var(--pink);
