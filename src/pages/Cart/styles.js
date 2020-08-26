@@ -7,15 +7,16 @@ export const Container = styled.div`
   width: 100%;
   color: var(--black);
   background: var(--gray-1);
+  overflow: hidden;
 `;
 
 export const Content = styled.div`
   width: 100%;
-  max-width: 900px;
+  max-width: 1000px;
   margin: 40px auto;
   background: var(--white);
   border-radius: 16px;
-  
+  /* position: relative; */
 `;
 
 export const CartProducts = styled.div`
@@ -66,7 +67,7 @@ export const ProdInfo = styled.div`
     }
   }
 
-  p {
+  > p {
     font-family: 'Mulish';
     font-size: 16px;
     line-height: 20px;
@@ -74,7 +75,7 @@ export const ProdInfo = styled.div`
     display: flex;
     height: fit-content;
 
-    span {
+    > span {
       margin-left: 8px;
       font-family: 'Mulish';
       font-size: 16px;
@@ -91,7 +92,7 @@ export const ProdQuantity = styled.div`
   position: relative;
   
 
-  p {
+  > p {
     margin: 0 16px;
     user-select: none;
   }
@@ -121,7 +122,7 @@ export const ProdQuantity = styled.div`
 export const QuantityError = styled.div`
   position: absolute;
   right: -140px;
-  top: 21px;
+  top: 36px;
   width: fit-content !important;
   height: fit-content !important;
   padding: 5px;
@@ -137,7 +138,7 @@ export const ProdPrice = styled.div`
   display: flex;
   align-items: center;
 
-  p {
+  > p {
     font-family: 'Playfair Display';
     font-size: 34px;
     line-height: 45px;
@@ -146,7 +147,7 @@ export const ProdPrice = styled.div`
     margin-right: 60px;
     user-select: none;
 
-    span {
+    > span {
       font-size: 24px;
       line-height: 32px;
       
@@ -171,15 +172,16 @@ export const TotalPrice = styled.div`
   padding-bottom: 11px;
   margin: 0 auto;
   background: var(--gray-1);
+  user-select: none;
 
   > div {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    max-width: 728px;
+    max-width: 855px;
     margin: 0 auto;
 
-    p {
+    > p {
       font-family: 'Playfair Display';
       font-size: 24px;
       line-height: 32px;
@@ -192,7 +194,7 @@ export const TotalPrice = styled.div`
       line-height: 45px;
       letter-spacing: 0.4px;
 
-      span {
+      > span {
         font-size: 24px;
         line-height: 32px;
         margin-right: 8px;
@@ -230,6 +232,7 @@ export const OrderOptions = styled.div`
     border: 2px solid var(--pink);
     border-radius: 16px;
     padding: 12px 0;
+    user-select: none;
 
     & + button {
       margin-left: 10px;
@@ -250,8 +253,9 @@ export const Costs = styled.div`
   padding: 0;
   margin: 0 auto;
   background: var(--gray-1);
+  user-select: none;
 
-  p {
+   p {
     font-family: 'Playfair Display';
     font-size: 24px;
     line-height: 32px;
@@ -262,7 +266,7 @@ export const Costs = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    max-width: 728px;
+    max-width: 855px;
     margin: 0 auto;
 
     div {
@@ -272,12 +276,145 @@ export const Costs = styled.div`
       letter-spacing: 0.4px;
       margin-left: 16px;
 
-      span {
+      > span {
         font-family: 'Playfair Display';
         font-size: 24px;
         line-height: 32px;
         margin-right: 8px;
       }
     }
+  }
+`;
+
+export const SuccessMessage = styled.div`
+  position: absolute;
+  display: flex;
+  z-index: 6;
+  top: 160px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  border-radius: 16px;
+  background: var(--white);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  margin: auto;
+
+  > strong {
+    font-family: 'Mulish';
+    width: fit-content;
+    margin: 0 auto;
+    display: block;
+    font-size: 43px;
+    line-height: 46px;
+    letter-spacing: 0.4px;
+    color: var(--green);
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--gray-3);
+  }
+
+  > div {
+
+    > span {
+      font-family: 'Playfair Display';
+      font-size: 28px;
+      line-height: 30px;
+      letter-spacing: 0.2px;
+      margin: 0 0 20px 16px;
+      display: block;
+    }
+
+    > p {
+      font-family: 'Mulish';
+      font-size: 18px;
+      line-height: 20px;
+      margin-right: 8px;
+      margin-left: 16px;
+      color: var(--gray-6);
+    }
+  }
+
+  button {
+    border: 2px solid var(--pink);
+    padding: 6px 27px;
+    width: fit-content;
+    border-radius: 8px;
+    margin: 0 auto;
+    background: var(--white);
+    transition: .5s;
+
+    &:hover {
+      background: var(--pink);
+      color: var(--white);
+    }
+  }
+`;
+
+export const ProductDetails = styled.div`
+  padding-left: 15px;
+  display: flex;
+
+  > p {
+    font-family: 'Mulish';
+    font-size: 18px;
+    line-height: 22px;
+    color: var(--gray-6);
+    margin-left: 20px;
+
+    &:nth-child(2) {
+      
+
+      span {
+        font-family: 'Mulish';
+        font-size: 16px;
+        line-height: 20px;
+        color: var(--gray-6);
+        margin: 0 15px;
+      }
+    }
+  }
+`;
+
+export const MessageBackground  = styled.div`
+  position: absolute;
+  height: 100vh;
+  background: var(--black);
+  opacity: 0.7;
+  top: 0;
+  bottom: 0;
+  height: 150%;
+  left: 0;
+  right: 0;
+  z-index: 4;
+`;
+
+export const CloseButton = styled.div`
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--white);
+  border: 2px solid var(--black);
+  border-radius: 50%;
+  transition: 0.5s;
+
+  &:hover {
+    border-color: var(--pink);
+
+    svg {
+      color: var(--pink);
+    }
+  }
+
+  svg {
+    width: 30px;
+    height: 30px;
+    transition: 0.5s;
   }
 `;

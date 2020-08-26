@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 100%;
   background: var(--white);
   position: relative;
-  z-index: 10;
+  z-index: 2;
 
   svg {
     color: #1B2437;

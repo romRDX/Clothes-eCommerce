@@ -34,6 +34,10 @@ import {
   Costs,
   TotalPrice,
   OrderOptions,
+  SuccessMessage,
+  ProductDetails,
+  MessageBackground,
+  CloseButton,
 } from './styles';
 
 const Shop = () => {
@@ -47,6 +51,8 @@ const Shop = () => {
   const shippingCharge = 100;
 
   const [error, setError] = useState({ state: false, id: null});
+  const [ orderDetails, setOrderDetails] = useState();
+  const [ successMesage, setSuccessMesage] = useState(false);
 
   const handleRemoveFromCart = useCallback((id) => {
       dispatch(removeProduct(id));
@@ -95,18 +101,26 @@ const Shop = () => {
       const newOrder = {
         ...cart,
         orderID: uuid(),
+        taxes: salesTaxes,
+        shipTo: 'address',
+        billTo: 'address',
+        shippingCharge,
+        totalProductsValue: totalAmount.initial,
+        finalValue: totalAmount.final,
       }
       
       orderStore(newOrder);
       dispatch(addToHistory(newOrder))
+
+      setOrderDetails(newOrder);
+      setSuccessMesage(true);
+      dispatch(resetCart());
     }
     
-  },[cart, dispatch]);
+  },[cart, totalAmount.initial, totalAmount.final, dispatch]);
 
   const handleCancelOrder = useCallback(() => {
-
     dispatch(resetCart())
-    
   },[dispatch]);
 
   return (
@@ -207,25 +221,60 @@ const Shop = () => {
             </div>
           </TotalPrice>
 
-          </> //**/*/
+          </>
         }
         
-          <OrderOptions active={ cartProducts.length === 0 }>
-            <div>
-              <button onClick={ () => history.push('/shop')}>
-                To shop
-              </button>
-
-              <button onClick={handleCancelOrder}>
-                Cancel order
-              </button>
-            </div>
-            
-            <button onClick={handlePlaceOrder}>
-              Place order
+        <OrderOptions active={ cartProducts.length === 0 }>
+          <div>
+            <button onClick={ () => history.push('/shop')}>
+              To shop
             </button>
-          </OrderOptions>
-        
+
+            <button onClick={handleCancelOrder}>
+              Cancel order
+            </button>
+          </div>
+          
+          <button onClick={handlePlaceOrder}>
+            Place order
+          </button>
+        </OrderOptions>
+        {
+          successMesage && 
+          <>
+          <SuccessMessage>
+            <strong>Your order has been placed successfully</strong>
+            <div>
+              <span>Order details</span>
+              <p>order ID code: { orderDetails.orderID }</p>
+              <p>Bill to: { orderDetails.billTo } </p>
+              <p>delivery address: { orderDetails.shipTo }</p>
+              <p>products ordered: </p> 
+              { 
+                orderDetails.products.map((prod)=> (
+                  <ProductDetails>
+                    <p>{prod.quantity} x </p>
+                    <p>
+                      <span>{prod.name} </span>
+                      <span>#{prod.id}</span>
+                    </p>
+                    <p>${prod.price}</p>
+                  </ProductDetails>
+                ))
+              }
+              <p>Shipping charge: { orderDetails.shippingCharge }</p>
+              <p>sales taxes: { orderDetails.taxes }</p>
+              <p>Total products value: { orderDetails.totalProductsValue}</p>
+              <p>Final value: { orderDetails.finalValue }</p> 
+            </div>
+            <button onClick={() => setSuccessMesage(false)}>OK</button>
+            <CloseButton onClick={() => setSuccessMesage(false)}>
+              <FiX />
+            </CloseButton>
+          </SuccessMessage>
+          <MessageBackground />
+          </>
+        }
       </Content>
       <Footer />
     </Container>

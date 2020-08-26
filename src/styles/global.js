@@ -15,6 +15,7 @@ export default createGlobalStyle`
     --pink: #EDA3B5;
     --pink-2: #ff9d9d;
     --red: #FF0000;
+    --green: #00FF00;
   }
 
   * {
