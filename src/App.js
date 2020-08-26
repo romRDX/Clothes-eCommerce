@@ -10,8 +10,8 @@ import GlobalStyle from './styles/global';
 const App = () => (
   <>
     <BrowserRouter>
-        <ScrollToTop/>
-        <Routes />
+      <ScrollToTop/>
+      <Routes />
       <GlobalStyle />
     </BrowserRouter>
   </>
