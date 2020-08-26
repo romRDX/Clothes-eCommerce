@@ -39,17 +39,17 @@ const Footer = () => {
         <LinksContainer>
           <span>More info</span>
           <Link to="/">How it works</Link>
-          <Link to="/shop">About us</Link>
-          <Link to="/blog">Decline rules</Link>
-          <Link to="/contact">Terms & Conditions</Link>
+          <Link to="/">About us</Link>
+          <Link to="/">Decline rules</Link>
+          <Link to="/">Terms & Conditions</Link>
         </LinksContainer>
 
         <LinksContainer>
           <span>Customer care</span>
           <Link to="/">FAQ</Link>
-          <Link to="/shop">Terms of use</Link>
-          <Link to="/blog">Privacy policy</Link>
-          <Link to="/contact">Discount system</Link>
+          <Link to="/">Terms of use</Link>
+          <Link to="/">Privacy policy</Link>
+          <Link to="/">Discount system</Link>
         </LinksContainer>
         
       </Content>

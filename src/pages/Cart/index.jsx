@@ -167,6 +167,15 @@ const Shop = () => {
           <>
           <Costs>
             <div>
+              <p>Products total</p>
+              
+              <div>
+                <span>$</span>
+                { totalAmount.initial }
+              </div>
+            </div>
+
+            <div>
               <p>Sales taxes</p>
               <div>
                 <p>{ `(${salesTaxes * 100}%)` }</p>
