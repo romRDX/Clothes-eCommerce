@@ -16,7 +16,6 @@ const Dashboard = () => {
       <Header />
       <BannerCarousel />
       <Content>
-        
         <Spotlight />
         <SuggestionCarousel />
         <ProductsCarousel />

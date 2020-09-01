@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import NavBar from '../NavBar';
 import Logo from '../Logo';
 import SocialMedia from '../SocialMedia';
 
@@ -18,7 +17,6 @@ const Footer = () => {
       data-aos-duration="1000"
       data-aos-once="true"
     >
-      <NavBar />
       <Content>
         <Trademark>
           <Logo />

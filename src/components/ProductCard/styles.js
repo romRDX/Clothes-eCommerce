@@ -17,6 +17,7 @@ export const Container = styled.div`
     overflow: hidden;
     border: 0;
     transition: 0.5s;
+    margin: 12px;
 
     &:hover {
       box-shadow: 2px 2px 8px var(--gray-6);

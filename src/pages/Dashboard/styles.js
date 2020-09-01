@@ -17,4 +17,5 @@ export const Content = styled.div`
   max-width: 1366px;
   padding: 0 20px;
   margin: 0 auto;
+  overflow: hidden;
 `;

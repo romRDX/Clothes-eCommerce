@@ -41,7 +41,7 @@ export const Container = styled.div`
 
   .carousel-indicators {
     top: -50px;
-    right: -167px;
+    right: -15%;
     left: initial;
 
     li {
@@ -57,4 +57,5 @@ export const Container = styled.div`
 export const ItemContent = styled.div`
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 `;

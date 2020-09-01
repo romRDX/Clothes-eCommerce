@@ -5,17 +5,10 @@ export const Container = styled.div`
   background: var(--white);
   position: relative;
   z-index: 2;
-
-  svg {
-    color: #1B2437;
-    width: 18px;
-    height: 18px;
-  }
 `;
 
 export const Content = styled.div`
   width: 100%;
-  max-width: 1366px;
   margin: 0 auto;
 `;
 
@@ -34,6 +27,7 @@ export const HeaderTopBar = styled.div`
     svg {
       width: 24px;
       height: 24px;
+      color: var(--black);
 
       &:last-child {
         margin-left: 30px;
@@ -41,10 +35,19 @@ export const HeaderTopBar = styled.div`
       }
     }
   }
+
+  @media only screen and (max-width: 830px) {
+    
+    margin-bottom: 25px;
+
+    > .socialMedia {
+      display: none;
+    }
+  }
 `;
 
 export const NavBar = styled.div`
-width: 80%;
+  width: 80%;
   display: flex;
   justify-content: space-between;
 `;

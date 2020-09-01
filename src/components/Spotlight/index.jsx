@@ -5,7 +5,7 @@ import card5 from '../../assets/Cards/card5.png';
 import card6 from '../../assets/Cards/card6.png';
 import card7 from '../../assets/Cards/card7.png';
 
-import { Container } from './styles';
+import { Container, DoubleBanner } from './styles';
 
 const Spotlight = () => {
 
@@ -26,10 +26,10 @@ const Spotlight = () => {
         data-aos-duration="1000"
         data-aos-once="true"
       >
-        <div>
+        <DoubleBanner>
           <img src={card5} alt="c5" />
           <img src={card6} alt="c6" />
-        </div>
+        </DoubleBanner>
         <img src={card7} alt="c7" />
       </div>
     </Container>

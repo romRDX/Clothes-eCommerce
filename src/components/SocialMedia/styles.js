@@ -6,6 +6,9 @@ export const Container = styled.div`
   justify-content: space-between;
   
   svg {
+    width: 18px;
+    height: 18px;
+    color: var(--black);
     cursor: pointer;
   }
 `;

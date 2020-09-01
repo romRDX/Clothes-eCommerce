@@ -16,4 +16,8 @@ export const Container = styled.div`
       opacity: 1;
     }
   }
+
+  .carousel-indicators {
+    z-index: 1;
+  }
 `;

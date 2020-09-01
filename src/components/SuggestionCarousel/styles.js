@@ -34,10 +34,7 @@ export const Container = styled.div`
   .carousel-control-next {
     right: -90px;
     width: 10%;
-
-    svg {
-      color: red;
-    }
+    position: absolute;
 
     &:after {
       content: '';
@@ -48,6 +45,14 @@ export const Container = styled.div`
       height: 15px;
       border-radius: 1px 5px;
       transform: rotate(45deg);
+    }
+
+    @media only screen and (max-width: 1160px) {
+      right: -15px;
+      width: auto;
+      height: fit-content;
+      padding: 30px 20px;
+      margin: auto;
     }
   }
   
@@ -65,12 +70,21 @@ export const Container = styled.div`
       border-radius: 1px 5px;
       transform: rotate(-135deg);
     }
+
+    @media only screen and (max-width: 1160px) {
+      left: -15px;
+      width: auto;
+      height: fit-content;
+      padding: 30px 20px;
+      margin: auto;
+    }
+  }
+
+  .carousel-control-prev-icon, .carousel-control-next-icon  {
+      display: none;
   }
 
   .carousel-indicators {
-    /* top: -50px;
-    right: -167px;
-    left: initial; */
     bottom: -50px;
 
     li {
@@ -85,10 +99,14 @@ export const Container = styled.div`
   .card {
     width: 100%;
     max-width: 250px;
+    margin: 13px;
   }
 `;
 
 export const ItemContent = styled.div`
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+
+  /* @media only screen and (max-width: 830px) { */
 `;

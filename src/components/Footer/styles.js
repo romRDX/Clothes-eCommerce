@@ -19,9 +19,14 @@ export const Content = styled.div`
   margin: 0 auto;
   padding: 40px 10vw;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 
   border-top: 1px solid var(--gray-2);
+
+  > div {
+    margin: 8px 10px;
+  }
 `;
 
 export const NavBar = styled.div`
@@ -73,5 +78,6 @@ export const FooterBottom = styled.div`
     font-size: 16px;
     line-height: 20px;
     color: var(--gray-6);
+    margin-right: 15px;
   }
 `;

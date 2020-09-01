@@ -2,33 +2,47 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
+import { FiArrowLeftCircle } from 'react-icons/fi';
 
 import {useTransition, animated} from 'react-spring';
 
-import { Container, Content } from './styles';
+import { Container, MobileCloseButton, OptionTitle } from './styles';
 
-const DropDown = () => {
+const DropDown = ({ name }) => {
 
-  const [ open,setOpen] = useState(false);
+  const [ isOpen,setIsOpen] = useState(false);
 
-  const transitions = useTransition(open, null, {
-    from: { opacity: 0  },
-    enter: { opacity: 1  },
-    leave: { opacity: 0 },
-  })
+  const responsiveAnimation = () => {
+    if(window.innerWidth < 830){
+      return {
+        from: { opacity: 0, transform: "translate(-200%,0)" },
+        enter: { opacity: 1, transform: "translate(-100%,0)" },
+        leave: { opacity: 0, transform: "translate(-200%,0)" },
+      }
+    } else {
+      return {
+        from: { opacity: 0},
+        enter: { opacity: 1 },
+        leave: { opacity: 0 },
+      }
+    }
+  }
+
+  const transitions = useTransition(isOpen, null, responsiveAnimation());
 
   return (
-    <Container>
-      <span onClick={() => setOpen(state => !state)}>
-        Shop 
-        { open ? <IoIosArrowUp /> : <IoIosArrowDown /> }
-      </span>
+    <>
+      <OptionTitle onClick={() => setIsOpen(state => !state)}>
+        { name }
+        { isOpen ? <IoIosArrowUp /> : <IoIosArrowDown /> }
+      </OptionTitle>
       { transitions.map(({ item, key, props }) => item && 
+        
         <animated.div 
           key={key}
           style={props}
         >
-          <Content isOpen={open}>
+          <Container isOpen={isOpen}>
             <div>
               <span>Products</span>
               <Link to="/shop">
@@ -71,20 +85,15 @@ const DropDown = () => {
                 <p>Bags</p>
               </Link>
             </div>
-            <div>
-              <Link to="/shop">
-                <p>Sales on channel</p>
-              </Link>
-              
-              <Link to="/shop">
-                <p>Accessories</p>
-              </Link>
-            </div>
-          </Content>
+
+            <MobileCloseButton onClick={() => setIsOpen(state => !state)}>
+              <FiArrowLeftCircle />
+            </MobileCloseButton>
+          </Container>
     
         </animated.div>
       )}
-    </Container>
+    </>
   );
 };
 

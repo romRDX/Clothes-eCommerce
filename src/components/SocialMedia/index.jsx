@@ -7,7 +7,7 @@ import { Container } from './styles';
 const DropDown = () => {
 
   return (
-    <Container>
+    <Container className='socialMedia'>
       <FaInstagram />
       <FaTwitter />
       <FaFacebookF />

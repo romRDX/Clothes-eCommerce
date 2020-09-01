@@ -10,7 +10,6 @@ const orderHistorySlice = createSlice({
   reducers: {
     addToHistory: (state, action) => {
       const { payload } = action;
-      console.log(payload);
       return [ ...state, payload];
     },
   }
