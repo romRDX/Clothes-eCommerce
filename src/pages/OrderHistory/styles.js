@@ -7,8 +7,11 @@ export const Container = styled.div`
   color: var(--black);
   background: var(--gray-1);
 
-  h1 {
+  > p {
     color: var(--black);
+    font-size: 30px;
+    line-height: 33px;
+    margin: 20px auto 10px;
   }
 `;
 

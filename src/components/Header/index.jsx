@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
-import { AiOutlineSearch } from 'react-icons/ai';
+import { AiOutlineSearch, AiOutlineUser } from 'react-icons/ai';
 import { RiShoppingCart2Line } from 'react-icons/ri';
 
 import NavBar from '../NavBar';
@@ -30,6 +30,7 @@ const Header = () => {
 
           <div>
             <AiOutlineSearch />
+            <Link to='/history'><AiOutlineUser /></Link>
             <RiShoppingCart2Line onClick={goToShop} />
           </div>
         </HeaderTopBar>

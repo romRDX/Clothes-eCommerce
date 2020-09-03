@@ -22,6 +22,7 @@ const OrderHistory = () => {
   return (
     <Container>
       <Header />
+      <p>Order History</p>
       <Content>
         {
           orderHistory.map((order) => (
