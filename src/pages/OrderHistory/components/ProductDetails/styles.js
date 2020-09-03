@@ -9,6 +9,7 @@ export const Container = styled.div`
   margin: 15px 0 15px 20px;
 
   border-left: 2px solid var(--gray-2);
+  padding: 10px 0;
   padding-left: 15px;
 
   color: var(--black);
@@ -49,6 +50,11 @@ export const Values = styled.div`
   font-weight: bold;
 
   p {
-    margin-bottom: 0;
+    margin: 10px 15px;
+  }
+
+  @media only screen and (max-width: 750px) {
+    margin-left: 5%;
+    flex-wrap: wrap;
   }
 `;
