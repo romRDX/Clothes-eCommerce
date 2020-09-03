@@ -9,6 +9,7 @@ import Contact from '../pages/Contact';
 import Product from '../pages/Product';
 import Cart from '../pages/Cart';
 import Shop from '../pages/Shop';
+import OrderHistory from '../pages/OrderHistory';
 
 const Routes = () => (
   <Switch>
@@ -18,6 +19,7 @@ const Routes = () => (
     <Route path="/shop" component={Shop} exact />
     <Route path="/cart" component={Cart} exact />
     <Route path="/product/:id" component={Product} />
+    <Route path="/history" component={OrderHistory} exact />
   </Switch>
 );
 
